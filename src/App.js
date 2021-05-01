@@ -10,7 +10,7 @@ function App() {
       <Route path="/" exact>
       <PaymentGateway />
       </Route>
-      <Route path="/payment">
+      <Route path="/pay">
             <PaymentGateway />
       </Route>
       <Redirect to="/" />

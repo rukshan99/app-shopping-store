@@ -30,18 +30,16 @@ export default function CheckoutForm(props) {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
 
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (event) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
+    
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -60,7 +58,8 @@ export default function CheckoutForm(props) {
 
     stripePaymentMethodHandler({
       result: paymentMethodResult,
-      amount: props.amount
+      amount: props.amount,
+      mobile
     }, handleResponse);
   };
 
@@ -100,6 +99,19 @@ export default function CheckoutForm(props) {
               className="form-control"
               value={email}
               onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-12 mb-3">
+            <label htmlFor="mobile-no">Mobile Number</label>
+            <input
+              id="mobile-no"
+              type="text"
+              className="form-control"
+              value={mobile}
+              onChange={e => setMobile(e.target.value)}
             />
           </div>
         </div>

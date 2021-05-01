@@ -54,7 +54,7 @@ const cart = () => {
         <span className="text-success">-$500</span>
       </li>
       <li className="list-group-item d-flex justify-content-between">
-        <span>Total (INR)</span>
+        <span>Total (USD)</span>
         <strong>$2000</strong>
       </li>
     </ul>
