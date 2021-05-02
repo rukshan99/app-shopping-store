@@ -4,13 +4,16 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 import './App.css';
 import PaymentGateway from './payment-gateway/payment-gateway';
 import MainNavigation from './shared/Navigation/MainNavigation';
+import SignIn from './user/SignIn';
 
 function App() {
   let routes = (
     <Switch>
-      
       <Route path="/pay">
-            <PaymentGateway />
+        <PaymentGateway />
+      </Route>
+      <Route path="/auth">
+        <SignIn />
       </Route>
       <Redirect to="/" />
     </Switch>

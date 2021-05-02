@@ -6,10 +6,10 @@ import Card from '../shared/UIElements/Card';
 import ErrorModal from '../shared/UIElements/ErrorModal';
 import LoadingSpinner from '../shared/UIElements/LoadingSpinner';
 
-import { useForm } from '../../shared/hooks/form-hooks';
-import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../../shared/util/validators';
-import { useHttpClient } from '../../shared/hooks/http-hook';
-import { AuthContext } from '../../shared/context/auth-context';
+import { useForm } from '../shared/hooks/form-hooks';
+import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH, VALIDATOR_REQUIRE } from '../shared/util/validators';
+import { useHttpClient } from '../shared/hooks/http-hook';
+import { AuthContext } from '../shared/context/auth-context';
 import './SignIn.css';
 
 const SignIn = () => {
@@ -58,7 +58,7 @@ const SignIn = () => {
         if(isSignInMode) {
             try{
                 const responseData = await sendRequest(
-                    'http://localhost:5000/api/users/signin', 
+                    'http://localhost:5000/api/users/signin', //connecting with the rest api
                     'POST', 
                     JSON.stringify({
                         email: formState.inputs.email.value,
@@ -74,7 +74,7 @@ const SignIn = () => {
         } else {
             try {
                 const responseData = await sendRequest(
-                    'http://localhost:5000/api/users/signup', 
+                    'http://localhost:5000/api/users/signup', //connecting with the rest api
                     'POST',
                     JSON.stringify({
                         name: formState.inputs.name.value,
