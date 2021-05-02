@@ -3,13 +3,12 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 
 import './App.css';
 import PaymentGateway from './payment-gateway/payment-gateway';
+import MainNavigation from './shared/Navigation/MainNavigation';
 
 function App() {
   let routes = (
     <Switch>
-      <Route path="/" exact>
-      <PaymentGateway />
-      </Route>
+      
       <Route path="/pay">
             <PaymentGateway />
       </Route>
@@ -19,7 +18,8 @@ function App() {
 
   return (
     <Router>
-        <main>{routes}</main>
+      <MainNavigation />
+      <main>{routes}</main>
       </Router>
   );
 }

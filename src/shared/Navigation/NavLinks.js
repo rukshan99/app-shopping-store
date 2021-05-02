@@ -7,7 +7,7 @@ import './NavLinks.css';
 const NavLinks = props => {
     const auth = "";// useContext(AuthContext);
 
-    if(!auth) {
+    //if(!auth) {
         return (
             <ul className="nav-links">
       <li>
@@ -16,23 +16,23 @@ const NavLinks = props => {
         </NavLink>
       </li>
         <li>
-          <NavLink to="/">Gadgets</NavLink>
+          <NavLink to="/gadgets">Gadgets</NavLink>
         </li>
         <li>
-          <NavLink to="/">About us</NavLink>
+          <NavLink to="/about">About us</NavLink>
         </li>
         <li>
-          <NavLink to="/">My Orders</NavLink>
+          <NavLink to="/orders">My Orders</NavLink>
         </li>
         <li>
-          <NavLink to="/pay">My Orders</NavLink>
+          <NavLink to="/pay">Pay</NavLink>
         </li>
         <li>
           <NavLink to="/auth">Sign in</NavLink>
         </li>
     </ul>
         );
-    }
+   // }
 // else {
 //   return (
 //     <ul className="nav-links">
