@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+.wrapper {
+    margin-top: 5%;
+    padding: 50px 200px;
+
+    display: flex;
+    justify-content: center;
+    font-family: "Arimo";
+    background-color: #eb9478;
+    -webkit-box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
+    -moz-box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
+    box-shadow: 9px 13px 25px 0px rgba(0, 0, 0, 0.18);
+    animation: slideUp 2000ms ease;
+}
+h1 {
+    text-align: center;
+    font-size: 24px;
+    line-height: 10px;
+    color:  #493b76;
+    letter-spacing: 1px;
+}
+
+input,textarea {
+    width: 100%;
+    min-height: 25px;
+    border: 0;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    font-family: "Arimo";
+    margin-top: 5px;
+    color: #8e2807;
+    border-radius: 4px;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #8e2807;
+}
+
+.address{
+
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+
+
+
+}
+.subAdd{
+
+        width: 45%;
+
+}
+
+.btnDelivery{
+    margin: 3px 0;
+    height: 30px;
+    
+    color: #cfc9e1;
+    background-color: #4a3b76;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .3rem;
+    letter-spacing: 2px;
+
+
+}
+.btnDelivery:hover {
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+}
+@keyframes btn-hov {
+    100% {
+        background-color: #cfc9e1;
+        color: #4a3b76;
+        transform: scale(1.05)
+    }
+}

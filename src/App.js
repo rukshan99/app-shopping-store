@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-d
 
 import './App.css';
 import PaymentGateway from './payment-gateway/payment-gateway';
+import DeliveryDetails from './DeliveryDetails/DeliveryDetails';
 
 function App() {
   let routes = (
@@ -13,6 +14,9 @@ function App() {
       <Route path="/payment">
             <PaymentGateway />
       </Route>
+      <Route path="/DeliveryDetails">
+                <DeliveryDetails />
+          </Route>
       <Redirect to="/" />
     </Switch>
   );
