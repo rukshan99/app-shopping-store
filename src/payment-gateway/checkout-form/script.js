@@ -1,7 +1,7 @@
 const API_ENDPOINT = 'http://localhost:4000';
 
 export const stripePaymentMethodHandler = async (data, cb) => {
-  const { amount, result } = data;
+  const { amount, result, mobile } = data;
   if (result.error) {
     // show error in payment form
     cb(result);
@@ -10,7 +10,8 @@ export const stripePaymentMethodHandler = async (data, cb) => {
       payment_method_id: result.paymentMethod.id,
       name: result.paymentMethod.billing_details.name,
       email: result.paymentMethod.billing_details.email,
-      amount: amount
+      amount: amount,
+      mobile
     });
     console.log(paymentResponse);
     cb(paymentResponse);

@@ -30,18 +30,16 @@ export default function CheckoutForm(props) {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [mobile, setMobile] = useState('');
 
   const stripe = useStripe();
   const elements = useElements();
 
   const handleSubmit = async (event) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
+    
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -60,7 +58,8 @@ export default function CheckoutForm(props) {
 
     stripePaymentMethodHandler({
       result: paymentMethodResult,
-      amount: props.amount
+      amount: props.amount,
+      mobile
     }, handleResponse);
   };
 
@@ -76,13 +75,15 @@ export default function CheckoutForm(props) {
 
   return (
     <React.Fragment>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+
       <h4 className="d-flex justify-content-between align-items-center mb-3">
         <span className="text-muted">Pay with card</span>
       </h4>
       <form onSubmit={handleSubmit}>
 
         <div className="row">
-          <div className="col-md-6 mb-3">
+          <div className="col-md-12 mb-3">
             <label htmlFor="cc-name">Name on card</label>
             <input
               id="cc-name"
@@ -92,7 +93,10 @@ export default function CheckoutForm(props) {
               onChange={e => setName(e.target.value)}
             />
           </div>
-          <div className="col-md-6 mb-3">
+        </div>
+
+        <div className="row">
+        <div className="col-md-6 mb-3">
             <label htmlFor="cc-email">Email</label>
             <input
               id="cc-email"
@@ -100,6 +104,16 @@ export default function CheckoutForm(props) {
               className="form-control"
               value={email}
               onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="mobile-no">Mobile Number</label>
+            <input
+              id="mobile-no"
+              type="text"
+              className="form-control"
+              value={mobile}
+              onChange={e => setMobile(e.target.value)}
             />
           </div>
         </div>
