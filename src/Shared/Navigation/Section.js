@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Products from './section/Products'
-import Details from './section/Details'
+import Products from '../../Products/components/section/Products'
+import Details from '../../Products/components/section/Details'
 import {Route} from "react-router-dom"
-import Cart from './section/Cart'
-import Payment from './section/Payment'
-import Form from './section/FormDetails/Form'
+import Cart from '../../Products/components/section/Cart'
+import Payment from '../../Products/components/section/Payment'
+import Form from '../../Products/components/section/FormDetails/Form'
 
 
 export class Section extends Component {

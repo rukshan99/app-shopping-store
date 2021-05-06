@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../css/Form.css';
-import Logo from '../../Assests/thankyou.png';
+import Logo from '../../../../Shared/Assests/images/thankyou.png';
 
 const FormSuccess = () => {
   return (
