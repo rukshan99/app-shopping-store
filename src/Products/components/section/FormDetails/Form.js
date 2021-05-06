@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../css/Form.css';
 import FormSignup from './FormSignup';
 import FormSuccess from './FormSuccess';
-import Phone from '../../../../Shared/Assests/images/phones.png'
+import Phone from '../../../../shared/Assests/images/phones.png'
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
