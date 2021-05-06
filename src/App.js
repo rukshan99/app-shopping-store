@@ -4,7 +4,6 @@ import Header from './Shared/Navigation/Header'
 import Section from './Shared/Navigation/Section'
 import {DataProvider} from './Products/components/Context'
 
-
 class App extends React.Component{
   render(){
     return(
