@@ -115,7 +115,7 @@ const FormSignup = ({ submitForm }) => {
 
         <div className='form-inputs'>
           <label className='form-label'>Add Your Image</label>
-          <input type="file" name="image-upload" id="input" accept="image/*"/>
+          <input type="file" name="image" id="input" accept="image/*"/>
           <div className="lable">
             
             <label htmlFor="input"  className="image-upload">

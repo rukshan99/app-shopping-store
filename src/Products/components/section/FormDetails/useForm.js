@@ -8,7 +8,8 @@ const useForm = (callback, validate) => {
     internalMemory: '',
     brand: '',
     serialNumber: '',
-    price: ''
+    price: '',
+    image: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);

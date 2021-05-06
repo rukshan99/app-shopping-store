@@ -9,7 +9,7 @@ export class DataProvider extends Component {
             {
                 "_id": "1",
                 "title": "iphone Xs",
-                "src": "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+                "src": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.digitalcameraworld.com%2Fbuying-guides%2Fbest-budget-camera-phone&psig=AOvVaw3TLka-aEuySv3vHfHSdnUT&ust=1620361388214000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJCqq9uatPACFQAAAAAdAAAAABAD",
                 "description": "Availbale Storage Size: 128GB, 256GB",
                 "content": "The best price of Apple iPhone XS 128GB in Sri Lanka is Rs. 165,000 sold at Greenware with 1 Year Apple Care Warranty.LTE 4G 3 GB RAM 128 GB eSIM",
                 "price": 165000,
