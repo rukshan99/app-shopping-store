@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
+import PaymentGateway from '../../../Payment/payment-gateway';
 
 export class Payment extends Component {
     render() {
         return (
-            <div>
-                <h2 style={{textAlign: "center"}}>Payment Component</h2>
-            </div>
+            <PaymentGateway />
         )
     }
 }

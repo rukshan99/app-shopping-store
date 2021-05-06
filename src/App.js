@@ -1,9 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
-import Header from './Products/components/Header'
-import Section from './Products/components/Section'
+import Header from './Shared/Navigation/Header'
+import Section from './Shared/Navigation/Section'
 import {DataProvider} from './Products/components/Context'
-
 
 class App extends React.Component{
   render(){
