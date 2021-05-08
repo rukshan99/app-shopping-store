@@ -55,3 +55,7 @@
     letter-spacing: 2px;
     margin: 15px 0;
 }
+section{
+    box-shadow: 0 0 5px #ccc;
+    padding: 15px 10px;
+  }

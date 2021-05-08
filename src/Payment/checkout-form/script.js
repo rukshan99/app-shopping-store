@@ -20,7 +20,7 @@ export const stripePaymentMethodHandler = async (data, cb) => {
 
 // place backend API call for payment
 const stripePayment = async data => {
-  const res = await fetch(`${API_ENDPOINT}/pay`, {
+  const res = await fetch(`${API_ENDPOINT}/payment`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
