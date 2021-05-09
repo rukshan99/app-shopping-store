@@ -11,7 +11,7 @@ const successMessage = () => {
   return (
     <div className="success-msg">
       <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+        <path fillRule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
       </svg>
       <div className="title">Payment Successful</div>
     </div>
@@ -20,7 +20,6 @@ const successMessage = () => {
 
 const cart = () => {
   return (<React.Fragment>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
     <h4 className="d-flex justify-content-between align-items-center mb-3">
       <span className="text-muted">Your cart</span>
       <span className="badge bg-secondary badge-pill">3</span>
@@ -68,9 +67,6 @@ function PaymentGateway() {
 
   return (
     <div className="container">
-      <div className="py-5 text-center">
-        <h4>Credit / Debit Card Details.</h4>
-      </div>
 
       <div className="row s-box">
         {paymentCompleted ? successMessage() : <React.Fragment>
