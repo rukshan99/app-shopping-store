@@ -5,15 +5,16 @@ import Colors from './Colors'
 import '../css/Details.css'
 import '../css/Cart.css'
 
+export let gadgetCart;
 export class Cart extends Component {
     static contextType = DataContext;
-
     componentDidMount(){
         this.context.getTotal();
     }
     
     render() {
         const {cart,increase,reduction,removeProduct,total} = this.context;
+        gadgetCart = this.context;
         if(cart.length === 0){
             return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
         }else{
@@ -49,6 +50,7 @@ export class Cart extends Component {
                 )
             }
         }
+        
 }
 
-export default Cart
+export default Cart;

@@ -150,7 +150,7 @@ export default function CheckoutForm(props) {
 
         <hr className="mb-4" />
         <button className="btn btn-dark w-100" type="submit" disabled={loading}>
-          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY $${props.amount}`}
+          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY`}
         </button>
         {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}
       </form>
