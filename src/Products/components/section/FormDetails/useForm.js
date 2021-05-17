@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { image } from '../../image-upload/image-upload';
+
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     productName: '',
@@ -9,8 +11,7 @@ const useForm = (callback, validate) => {
     internalMemory: '',
     brand: '',
     serialNumber: '',
-    price: '',
-    image: ''
+    price: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,9 +29,10 @@ const useForm = (callback, validate) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);
+    const valuesWithImage = {...values, ...image};
 
     axios
-      .post('http://localhost:4000/form', values)
+      .post('http://localhost:4000/form', valuesWithImage)
       .then(() => console.log('Product Created'))
       .catch(err => {
         console.error(err);
