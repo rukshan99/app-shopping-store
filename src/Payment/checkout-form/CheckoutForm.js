@@ -27,10 +27,10 @@ const CARD_ELEMENT_OPTIONS = {
 export default function CheckoutForm(props) {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
+  const [mobilePayment, setMobilePayment] = useState(false);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -73,7 +73,7 @@ export default function CheckoutForm(props) {
     props.setPaymentCompleted(response.success ? true : false);
   };
 
-  return (
+  return (!mobilePayment?
     <React.Fragment>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossOrigin="anonymous" />
 
@@ -145,6 +145,63 @@ export default function CheckoutForm(props) {
               className="form-control"
               options={CARD_ELEMENT_OPTIONS}
             />
+          </div>
+        </div>
+
+        <hr className="mb-4" />
+        <button className="btn btn-dark w-100" type="submit" disabled={loading}>
+          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `PAY`}
+        </button>
+        {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}
+      </form>
+    </React.Fragment> : <React.Fragment>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossOrigin="anonymous" />
+
+      <h4 className="d-flex justify-content-between align-items-center mb-3">
+        <span className="text-muted">Pay with mobile</span>
+      </h4>
+      <form>
+
+        <div className="row">
+          <div className="col-md-12 mb-3">
+            <label htmlFor="cc-name">Registered Name</label>
+            <input
+              id="cc-name"
+              type="text"
+              className="form-control"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="row">
+        <div className="col-md-12 mb-3">
+            <label htmlFor="cc-email">Email</label>
+            <input
+              id="cc-email"
+              type="text"
+              className="form-control"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="row">
+        <div className="col-md-6 mb-3">
+            <label htmlFor="mobile-no">Mobile Number</label>
+            <input
+              id="mobile-no"
+              type="text"
+              className="form-control"
+              value={mobile}
+              onChange={e => setMobile(e.target.value)}
+            />
+          </div>
+          <div className="col-md-6 mb-3">
+            <label htmlFor="cc-number">PIN</label>
+            <input type="password" className="form-control"/>
           </div>
         </div>
 
