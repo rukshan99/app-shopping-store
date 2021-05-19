@@ -8,6 +8,7 @@ import './payment-gateway.css';
 
 const stripePromise = loadStripe("pk_test_51IjoKtLpaVzr78MNo7zCOQCZJMM3fICFBVB1SFWcNKBqsufQa0FciqtEFYPUo0jgBA2gGKwNCsnXvAOx8sNP2FNE006hv0u5uv");
 
+
 const successMessage = () => {
   return (
     <div className="success-msg">
@@ -66,7 +67,7 @@ function PaymentGateway() {
           </div>
           <div className="col-md-7 order-md-1">
           <Elements stripe={stripePromise}>
-              <CheckoutForm amount={2000} setPaymentCompleted={setPaymentCompleted} />
+              <CheckoutForm amount={gadgetCart.total} setPaymentCompleted={setPaymentCompleted} />
             </Elements>
           </div>
         </React.Fragment>}
