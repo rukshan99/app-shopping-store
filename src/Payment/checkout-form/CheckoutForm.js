@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useLocation } from "react-router-dom";
 
 import {
   useStripe, useElements,
   CardNumberElement, CardExpiryElement, CardCvcElement
 } from '@stripe/react-stripe-js';
 
-import { stripePaymentMethodHandler } from './script';
+import { stripePaymentMethodHandler, mobilePaymentMethodHandler } from './script';
+
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
@@ -25,12 +27,15 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 export default function CheckoutForm(props) {
+  const location = useLocation();
+  const { mobilePay } = location.state;
+
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-  const [mobilePayment, setMobilePayment] = useState(false);
+  const [mobilePayment, setMobilePayment] = useState(mobilePay);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -39,28 +44,47 @@ export default function CheckoutForm(props) {
     
     event.preventDefault();
 
-    if (!stripe || !elements) {
-      return;
-    }
-
-    setLoading(true);
-    setErrorMsg('');
-
-    const paymentMethodObj = {
-      type: 'card',
-      card: elements.getElement(CardNumberElement),
-      billing_details: {
+    if(mobilePayment){
+      mobilePaymentMethodHandler({
         name,
-        email
-      },
-    };
-    const paymentMethodResult = await stripe.createPaymentMethod(paymentMethodObj);
-
-    stripePaymentMethodHandler({
-      result: paymentMethodResult,
-      amount: props.amount,
-      mobile
-    }, handleResponse);
+        email,
+        amount: props.amount,
+        mobile,
+        mobilePay: true
+      }, response => {
+        setLoading(false);
+        if (response.error) {
+          setErrorMsg(typeof response.error === 'string' ? response.error : response.error.message);
+          return;
+        }
+        props.setPaymentCompleted(true);
+      })
+    } else {
+      if (!stripe || !elements) {
+        return;
+      }
+  
+      setLoading(true);
+      setErrorMsg('');
+  
+      const paymentMethodObj = {
+        type: 'card',
+        card: elements.getElement(CardNumberElement),
+        billing_details: {
+          name,
+          email
+        },
+      };
+      const paymentMethodResult = await stripe.createPaymentMethod(paymentMethodObj);
+  
+      stripePaymentMethodHandler({
+        result: paymentMethodResult,
+        amount: props.amount,
+        mobile,
+        mobilePay: false
+      }, handleResponse);
+    }
+    
   };
 
   // callback method to handle the response
@@ -160,8 +184,7 @@ export default function CheckoutForm(props) {
       <h4 className="d-flex justify-content-between align-items-center mb-3">
         <span className="text-muted">Pay with mobile</span>
       </h4>
-      <form>
-
+      <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="col-md-12 mb-3">
             <label htmlFor="cc-name">Registered Name</label>

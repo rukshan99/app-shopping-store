@@ -8,6 +8,7 @@ import '../css/Cart.css'
 export let gadgetCart;
 export class Cart extends Component {
     static contextType = DataContext;
+
     componentDidMount(){
         this.context.getTotal();
     }
@@ -43,7 +44,18 @@ export class Cart extends Component {
                         ))
                     }
                     <div className="total">
-                        <Link to="/payment">Payment</Link>
+                        <Link to={{
+                            pathname: `/payment`,
+                            state: {
+                                mobilePay: false,
+                              },
+                            }}>Pay with card</Link>
+                        <Link to={{
+                            pathname: `/payment`,
+                            state: {
+                                mobilePay: true,
+                              },
+                            }}>Pay with mobile</Link>
                         <h3>Total: Rs {total}</h3>
                     </div>
                 </>
