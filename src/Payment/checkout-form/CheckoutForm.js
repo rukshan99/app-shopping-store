@@ -35,8 +35,6 @@ export default function CheckoutForm(props) {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [mobilePayment, setMobilePayment] = useState(mobilePay);
-  const [needDelivery, setNeedDelivery] = useState();
-  const [viewDeliveryForm, setViewDeliveryForm] = useState();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -96,10 +94,6 @@ export default function CheckoutForm(props) {
       return;
     }
     props.setPaymentCompleted(response.success ? true : false);
-  };
-
-  const payBtnHandler = () => {
-    setNeedDelivery(true);
   };
 
   return (!mobilePayment?
