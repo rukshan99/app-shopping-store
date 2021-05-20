@@ -153,3 +153,11 @@
   color: #27cdff;
   font-weight: 600;
 }
+
+.link {
+  color: #FFF;
+  
+}
+.link:hover {
+  color: rgb(35, 190, 190);
+}
