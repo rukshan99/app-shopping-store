@@ -14,16 +14,16 @@ class App extends React.Component{
           <Router>
             <Header />
             <Section />
-            
+            <Route path="/payment" exact>
+              <PaymentGateway />
+            </Route>
+            <Route path="/delivery">
+              <DeliveryDetails/>
+            </Route>
           </Router>
-          <Router>
-            <DeliveryDetails/>
-          </Router>
-
-
-        
         </div>
       </DataProvider>
+      
     );
   }
 }
