@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {  ToastContainer, toast } from "react-toast";
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 
@@ -8,15 +9,20 @@ import './payment-gateway.css';
 
 const stripePromise = loadStripe("pk_test_51IjoKtLpaVzr78MNo7zCOQCZJMM3fICFBVB1SFWcNKBqsufQa0FciqtEFYPUo0jgBA2gGKwNCsnXvAOx8sNP2FNE006hv0u5uv");
 
+const showSuccess = () => toast.success("Payment successful!😊");
 
 const successMessage = () => {
-  return (
+  showSuccess();
+  return (<React.Fragment>
+    < ToastContainer />
     <div className="success-msg">
       <svg width="1em" height="1em" viewBox="0 0 16 16" className="bi bi-check2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
         <path fillRule="evenodd" d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
       </svg>
-      <div className="title">Payment Successful</div>
+      <h2>Payment successful!</h2>
     </div>
+    <h4 className="success-msg">Bring your order to the door-step. Use <a href="/delivery"> Easypost</a>.</h4>
+    </React.Fragment>
   )
 }
 
@@ -72,7 +78,6 @@ function PaymentGateway() {
           </div>
         </React.Fragment>}
       </div>
-
     </div>
   );
 }

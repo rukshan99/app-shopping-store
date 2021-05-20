@@ -8,7 +8,6 @@ import {
 
 import { stripePaymentMethodHandler, mobilePaymentMethodHandler } from './script';
 
-
 const CARD_ELEMENT_OPTIONS = {
   style: {
     base: {
