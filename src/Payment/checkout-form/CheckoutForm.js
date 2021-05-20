@@ -8,7 +8,6 @@ import {
 
 import { stripePaymentMethodHandler, mobilePaymentMethodHandler } from './script';
 
-
 const CARD_ELEMENT_OPTIONS = {
   style: {
     base: {
@@ -36,6 +35,8 @@ export default function CheckoutForm(props) {
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [mobilePayment, setMobilePayment] = useState(mobilePay);
+  const [needDelivery, setNeedDelivery] = useState();
+  const [viewDeliveryForm, setViewDeliveryForm] = useState();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -95,6 +96,10 @@ export default function CheckoutForm(props) {
       return;
     }
     props.setPaymentCompleted(response.success ? true : false);
+  };
+
+  const payBtnHandler = () => {
+    setNeedDelivery(true);
   };
 
   return (!mobilePayment?
