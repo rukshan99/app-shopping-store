@@ -3,6 +3,7 @@ import './Form.css';
 import FormSignup from './FormSignup';
 import FormSuccess from './FormSuccess';
 import { Link } from 'react-router-dom'
+import Header from '../shared/Navigation/Header';
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -11,6 +12,8 @@ const Form = () => {
     setIsSubmitted(true);
   }
   return (
+    <div>
+      <Header/>
     <>
       <div className='form-container'>
         <span className='close-btn'><Link to="/product"><div className='link '>×</div></Link></span>
@@ -24,6 +27,7 @@ const Form = () => {
         )}
       </div>
     </>
+    </div>
   );
 };
 

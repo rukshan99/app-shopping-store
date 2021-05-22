@@ -3,6 +3,7 @@ import '../../css/Form.css';
 import FormSignup from './FormSignup';
 import FormSuccess from './FormSuccess';
 import Phone from '../../../../shared/Assests/images/phones.png'
+import Header from '../../../../shared/Navigation/aHead';
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -11,6 +12,8 @@ const Form = () => {
     setIsSubmitted(true);
   }
   return (
+    <div>
+      <Header/>
     <>
       <div className='form-container'>
         <span className='close-btn'>×</span>
@@ -25,6 +28,7 @@ const Form = () => {
         )}
       </div>
     </>
+    </div>
   );
 };
 

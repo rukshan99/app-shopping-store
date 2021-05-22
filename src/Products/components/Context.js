@@ -103,10 +103,18 @@ export class DataProvider extends Component {
     };
 
     addCart = (id) =>{
+        const dataUser = JSON.parse(localStorage.getItem('dataUser'));
         const {products, cart} = this.state;
         const check = cart.every(item =>{
             return item._id !== id
         })
+        if(dataUser === null){
+            alert("Please be a registered user!!!")
+        }else{
+
+
+
+
         if(check){
             const data = products.filter(product =>{
                 return product._id === id
@@ -115,6 +123,7 @@ export class DataProvider extends Component {
         }else{
             alert("The product has been added to cart.")
         }
+    }
     };
 
     reduction = id =>{

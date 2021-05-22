@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import Colors from './Colors'
 import '../css/Details.css'
 import '../css/Cart.css'
+import Header from '../../../shared/Navigation/Header'
 
 export class Cart extends Component {
     static contextType = DataContext;
@@ -13,11 +14,19 @@ export class Cart extends Component {
     }
     
     render() {
+        
         const {cart,increase,reduction,removeProduct,total} = this.context;
         if(cart.length === 0){
-            return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
+            return (
+                <div>
+                    <Header/>
+            <h2 style={{textAlign:"center"}}>Nothings Product</h2>
+            </div>
+            )
         }else{
             return (
+                <div>
+                    <Header/>
                 <>
                     {
                         cart.map(item =>(
@@ -46,6 +55,7 @@ export class Cart extends Component {
                         <h3>Total: Rs {total}</h3>
                     </div>
                 </>
+                </div>
                 )
             }
         }

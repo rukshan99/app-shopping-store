@@ -44,15 +44,18 @@ export class FormLogin extends Component {
       .post('http://localhost:4000/login', values)
       .then(response => {
         console.log(response)
+        
         if (response.data === ('Admin')) {
           alert("Admin Login")
-          this.setState({ redirect: "/payment" });
+          this.setState({ redirect: "/admin" });
 
 
         }
-        else if (response.data === ('Pass')) {
-
-          this.setState({ redirect: "/cart" });
+        else if (response.data.result === ('Pass')) {
+          const username = response.data.username
+          this.setState({ redirect: "/user" });
+          localStorage.setItem('dataUser', JSON.stringify('user'))
+          localStorage.setItem('dataUsername',username);
 
         } else {
           this.setState({ redirect: "/unSuccess" });

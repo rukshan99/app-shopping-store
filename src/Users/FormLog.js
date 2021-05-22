@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import './Form.css';
 import FormLogin from './FormLogin';
 import { Link } from 'react-router-dom'
+import Header from '../shared/Navigation/Header';
+
 
 const FormLog = () => {
   
   return (
+    <div>
+      <Header/>
     <>
       <div className='form-container'>
         <span className='close-btn'><Link to="/signup"><div className='link '>×</div></Link></span>
@@ -15,6 +19,7 @@ const FormLog = () => {
         <FormLogin></FormLogin>
       </div>
     </>
+    </div>
   );
 };
 

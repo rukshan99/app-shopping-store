@@ -7,6 +7,8 @@ import Form from '../../Products/components/section/FormDetails/Form'
 import signup from '../../Users/Form'
 import login from '../../Users/FormLog'
 import unSuccess from '../../Users/unSuccess'
+import aHead from './aHead'
+import User from '../../Users/User'
 
 
 export class Section extends Component {
@@ -21,6 +23,9 @@ export class Section extends Component {
                     <Route path="/signup" component={signup} exact />
                     <Route path="/login" component={login} exact />
                     <Route path="/unSuccess" component={unSuccess} exact />
+                    <Route path="/admin" component={aHead} exact />
+                    <Route path="/user" component={User} exact />
+
             </section>
         )
     }
