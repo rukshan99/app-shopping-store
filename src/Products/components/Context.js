@@ -9,7 +9,7 @@ export class DataProvider extends Component {
             {
                 "_id": "1",
                 "title": "iphone Xs",
-                "src": "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/SwappieXsGold-1-1-1-600x600.png",
+                "src": "https://assets.swappie.com/SwappieXsGold-1-1-1.png",
                 "description": "Availbale Storage Size: 128GB, 256GB",
                 "content": "The best price of Apple iPhone XS 128GB in Sri Lanka is Rs. 165,000 sold at Greenware with 1 Year Apple Care Warranty.LTE 4G 3 GB RAM 128 GB eSIM",
                 "price": 165000,
