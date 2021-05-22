@@ -100,7 +100,7 @@ export class Products extends Component {
                         <input
                         type="text"
                         className="form-control"
-                        placeholder="Search by title"
+                        placeholder="Search by Brand"
                         value={searchBrand}
                         onChange={this.onChangeSearchBrand}
                         />
