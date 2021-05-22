@@ -30,14 +30,14 @@ const useForm = (callback, validate) => {
     setErrors(validate(values));
     setIsSubmitting(true);
     const valuesWithImage = {...values, ...image};
+    
 
-    axios
-      .post('http://localhost:4000/form', valuesWithImage)
-      .then(() => console.log('Product Created'))
+      axios
+      .put('http://localhost:4000/contact', valuesWithImage)
+      .then(() => console.log('one product retrived'))
       .catch(err => {
         console.error(err);
       });
-
   };
 
   useEffect(
@@ -53,3 +53,6 @@ const useForm = (callback, validate) => {
 };
 
 export default useForm;
+
+
+
