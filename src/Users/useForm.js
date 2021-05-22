@@ -3,14 +3,10 @@ import axios from 'axios';
 
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
-    productName: '',
-    displaySize: '',
-    RAMSize: '',
-    internalMemory: '',
-    brand: '',
-    serialNumber: '',
-    price: '',
-    image: ''
+    username: '',
+    email: '',
+    password: '',
+    password2: ''
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,8 +26,8 @@ const useForm = (callback, validate) => {
     setIsSubmitting(true);
 
     axios
-      .post('http://localhost:4000/form', values)
-      .then(() => console.log('Product Created'))
+      .post('http://localhost:4000/signup', values)
+      .then(() => console.log('User Created'))
       .catch(err => {
         console.error(err);
       });

@@ -9,6 +9,7 @@ header .logo a{
     text-decoration: none;
     text-transform: uppercase;
     color: black;
+    font-size: 150%;
 }
 header nav{
     display: flex;

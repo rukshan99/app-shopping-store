@@ -14,7 +14,6 @@ class App extends React.Component{
       <DataProvider>
         <div className="app">
           <Router>
-            <Header />
             <Section />
             <Route path="/payment" exact>
               <PaymentGateway />

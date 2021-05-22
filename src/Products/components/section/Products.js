@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import Header from '../../../shared/Navigation/Header';
 import {DataContext} from '../Context'
 import '../css/Products.css'
+
 
 export class Products extends Component {
 
@@ -10,6 +12,8 @@ export class Products extends Component {
     render() {
         const {products,addCart} = this.context;
         return (
+            <div>
+                <Header/>
             <div id="product">
                {
                    products.map(product =>(
@@ -28,6 +32,7 @@ export class Products extends Component {
                        </div>
                    ))
                }
+            </div>
             </div>
         )
     }
