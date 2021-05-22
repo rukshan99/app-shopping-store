@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import '../../css/Form.css';
+import './Form.css';
 import FormSignup from './FormSignup';
 import FormSuccess from './FormSuccess';
-import Phone from '../../../../shared/Assests/images/phones.png'
-import Header from '../../../../shared/Navigation/aHead';
+import { Link } from 'react-router-dom'
+import Header from '../shared/Navigation/Header';
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -16,10 +16,9 @@ const Form = () => {
       <Header/>
     <>
       <div className='form-container'>
-        <span className='close-btn'>×</span>
+        <span className='close-btn'><Link to="/product"><div className='link '>×</div></Link></span>
         <div className='form-content-left'>
-          <img className='form-img' src={Phone} alt='spaceship' />
-          <h1 className ='title'>THE GADGET STORE.</h1>
+          <img className='form-img' src='img/img-2.svg' alt='spaceship' />
         </div>
         {!isSubmitted ? (
           <FormSignup submitForm={submitForm} />

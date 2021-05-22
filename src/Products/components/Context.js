@@ -20,6 +20,13 @@ export class DataProvider extends Component {
         const check = this.state.cart.every(item =>{
             return item.serialNumber !== id
         })
+        if(dataUser === null){
+            alert("Please be a registered user!!!")
+        }else{
+
+
+
+
         if(check){
             const data = this.state.productCollection.filter(product =>{
                 return product.serialNumber === id
@@ -28,6 +35,7 @@ export class DataProvider extends Component {
         }else{
             alert("The product has been added to cart.")
         }
+    }
     };
 
     reduction = id =>{

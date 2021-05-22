@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import Menu from '../Assests/svg/bars-solid.svg'
 import Close from '../Assests/svg/times-solid.svg'
-import CartIcon from '../Assests/svg/shopping-cart-solid.svg'
 import {Link} from 'react-router-dom'
 import './Header.css'
-import {DataContext} from '../../Products/components/Context'
 
-
-
-export class Header extends Component {
-    static contextType = DataContext;
+export class aHead extends Component {
 
     state = {
         toggle: false
@@ -22,7 +17,6 @@ export class Header extends Component {
 
     render() {
         const {toggle} = this.state;
-        const {cart} = this.context;
         return (
             <header>
                 <div className="menu" onClick={this.menuToggle}>
@@ -33,26 +27,18 @@ export class Header extends Component {
                 </div>
                 <nav>
                     <ul className={toggle ? "toggle" : ""}>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/product">Product</Link></li>
+                        <li><Link to="/admin">Home</Link></li>
+                        <li><Link to="/form">Product</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
-                        <li><Link to="/form">About</Link></li>
-                        <li><Link to="/user">Profile</Link></li>
-                        <li><Link to="/signup">Login / Register</Link></li>
+                        <li><Link to="/login">Logout</Link></li>
                         <li className="close" onClick={this.menuToggle}>
                             <img src={Close} alt="" width="20"/>
                         </li>
                     </ul>
-                    <div className="nav-cart">
-                        <span>{cart.length}</span>
-                        <Link to="/cart">
-                            <img src={CartIcon} alt="" width="20"/>
-                        </Link>
-                    </div>
                 </nav>
             </header>
         )
     }
 }
 
-export default Header
+export default aHead

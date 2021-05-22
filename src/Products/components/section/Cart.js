@@ -3,7 +3,9 @@ import {DataContext} from '../Context'
 import {Link} from 'react-router-dom'
 import '../css/Details.css'
 import '../css/Cart.css'
+import Header from '../../../shared/Navigation/Header'
 
+export let gadgetCart;
 export class Cart extends Component {
     static contextType = DataContext;
 
@@ -12,11 +14,20 @@ export class Cart extends Component {
     }
     
     render() {
+        
         const {cart,increase,reduction,removeProduct,total} = this.context;
+        gadgetCart = this.context;
         if(cart.length === 0){
-            return <h2 style={{textAlign:"center"}}>Nothings Product</h2>
+            return (
+                <div>
+                    <Header/>
+            <h2 style={{textAlign:"center"}}>Nothings Product</h2>
+            </div>
+            )
         }else{
             return (
+                <div>
+                    <Header/>
                 <>
                     {
                         cart.map(item =>(
@@ -43,13 +54,26 @@ export class Cart extends Component {
                         ))
                     }
                     <div className="total">
-                        <Link to="/payment">Payment</Link>
+                        <Link to={{
+                            pathname: `/payment`,
+                            state: {
+                                mobilePay: false,
+                              },
+                            }}>Pay with card</Link>
+                        <Link to={{
+                            pathname: `/payment`,
+                            state: {
+                                mobilePay: true,
+                              },
+                            }}>Pay with mobile</Link>
                         <h3>Total: Rs {total}</h3>
                     </div>
                 </>
+                </div>
                 )
             }
         }
+        
 }
 
-export default Cart
+export default Cart;

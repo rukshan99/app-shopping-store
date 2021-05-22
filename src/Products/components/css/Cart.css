@@ -41,3 +41,7 @@ section .cart{
     margin-right: 50px;
     color: crimson;
 }
+section{
+    box-shadow: 0 0 5px #ccc;
+    padding: 15px 10px;
+  }

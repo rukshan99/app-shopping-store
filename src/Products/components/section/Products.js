@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 
+import Header from '../../../shared/Navigation/Header';
 import {DataContext} from '../Context'
 import '../css/Products.css'
 import ProductDataService from "../../components/ProductService";
 
-
+export class Products extends Component {
 
 export class Products extends Component {
     static contextType = DataContext;
@@ -93,6 +94,7 @@ export class Products extends Component {
         console.log(addCart);
         return (
 
+
             <div>
                 <div className= "search">
                    
@@ -115,6 +117,10 @@ export class Products extends Component {
                 
                     
             </div>
+
+
+            <div>
+                <Header/>
 
             <div id="product">
 
