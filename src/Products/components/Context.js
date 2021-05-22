@@ -16,16 +16,13 @@ export class DataProvider extends Component {
 
 
     addCart = (id) =>{
-       
+        const dataUser = JSON.parse(localStorage.getItem('dataUser'));
         const check = this.state.cart.every(item =>{
             return item.serialNumber !== id
         })
         if(dataUser === null){
             alert("Please be a registered user!!!")
         }else{
-
-
-
 
         if(check){
             const data = this.state.productCollection.filter(product =>{

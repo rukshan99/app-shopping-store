@@ -8,8 +8,6 @@ import '../css/Products.css'
 import ProductDataService from "../../components/ProductService";
 
 export class Products extends Component {
-
-export class Products extends Component {
     static contextType = DataContext;
 
     constructor(props) {
@@ -93,13 +91,9 @@ export class Products extends Component {
         const { searchBrand, products, current, currentIndex } = this.state;
         console.log(addCart);
         return (
-
-
             <div>
                 <div className= "search">
-                   
-                    
-                        <input
+                    <input
                         type="text"
                         className="form-control"
                         placeholder="Search by Brand"
@@ -114,14 +108,10 @@ export class Products extends Component {
                         >
                             Search
                         </button>
-                
                     
-            </div>
-
-
+                </div>
             <div>
                 <Header/>
-
             <div id="product">
 
                {
@@ -146,8 +136,10 @@ export class Products extends Component {
                }
             </div>
             </div>
-        )
-    }
+            </div>
+    )
+    
+}
 }
 
 export default Products
