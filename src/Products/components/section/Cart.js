@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {DataContext} from '../Context'
 import {Link} from 'react-router-dom'
-import Colors from './Colors'
+//import Colors from './Colors'
 import '../css/Details.css'
 import '../css/Cart.css'
 
@@ -21,23 +21,23 @@ export class Cart extends Component {
                 <>
                     {
                         cart.map(item =>(
-                            <div className="details cart" key={item._id}>
+                            <div className="details cart" key={item.serealNumber}>
                                 <img src={item.src} alt=""/>
                                 <div className="box">
                                     <div className="row">
                                         <h2>{item.title}</h2>
                                         <span>Rs {item.price * item.count}</span>
                                     </div>
-                                    <Colors colors={item.colors}/>
+                                    {/* <Colors colors={item.colors}/> */}
                                     <p>{item.description}</p>
                                     <p>{item.content}</p>
                                     <div className="amount">
-                                        <button className="count" onClick={() => reduction(item._id)}> - </button>
+                                        <button className="count" onClick={() => reduction(item.serealNumber)}> - </button>
                                         <span>{item.count}</span>
-                                        <button className="count" onClick={() => increase(item._id)}> + </button>
+                                        <button className="count" onClick={() => increase(item.serealNumber)}> + </button>
                                     </div>
                                 </div>
-                                <div className="delete" onClick={() => removeProduct(item._id)}>X</div>
+                                <div className="delete" onClick={() => removeProduct(item.serealNumber)}>X</div>
                             </div>
                         ))
                     }
