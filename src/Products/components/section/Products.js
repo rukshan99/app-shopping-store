@@ -4,41 +4,130 @@ import axios from 'axios';
 
 import {DataContext} from '../Context'
 import '../css/Products.css'
+import ProductDataService from "../../components/ProductService";
 
 
 
 export class Products extends Component {
     static contextType = DataContext;
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        this.onChangeSearchBrand = this.onChangeSearchBrand.bind(this);
+        this.retrieveProducts = this.retrieveProducts.bind(this);
+        this.setActiveProduct = this.setActiveProduct.bind(this);
+        this.searchBrand = this.searchBrand.bind(this);
+        this.refreshList = this.refreshList.bind(this);
         this.state = {
-            productCollection: []
+     
+            products: [], 
+            currentProduct: null,
+            searchBrand: ""
+
+            
+          };
+
         }
-    }
+
+        retrieveProducts() {
+            ProductDataService.getAll()
+              .then(response => {
+                this.setState({
+                    products: response.data
+                });
+                console.log(response.data);
+              })
+              .catch(e => {
+                console.log(e);
+              });
+          }
+
+          setActiveProduct(product,) {
+            this.setState({
+              currentProduct: product,
+            });
+          }
+    
+          refreshList() {
+            this.retrieveProducts();
+            this.setState({
+              currentProduct: null,
+            });
+          }
 
     componentDidMount() {
-        axios.get(`http://localhost:4000/product`)
-          .then(res => {
-            this.setState({productCollection: res.data});
-            console.log(this.state.productCollection);
-          }).catch()
+   
+    this.retrieveProducts();
+    }
+
+    onChangeSearchBrand(e) {
+        const searchBrand = e.target.value;
+    
+        this.setState({
+          searchBrand: searchBrand
+        });
       }
+
+      searchBrand() {
+        ProductDataService.findByBrand(this.state.searchBrand)
+          .then(response => {
+            this.setState({
+              products: response.data
+            });
+            
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+        }
+
+
+
     render() {
 
-        const {productCollection,addCart} = this.context;
+
+        const {addCart} = this.context;
+        const { searchBrand, products, current, currentIndex } = this.state;
         console.log(addCart);
         return (
+
+            <div>
+                <div className= "search">
+                   
+                    
+                        <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search by title"
+                        value={searchBrand}
+                        onChange={this.onChangeSearchBrand}
+                        />
+                   
+                        <button
+                            className="btn-outline-secondary"
+                            type="button"
+                            onClick={this.searchBrand}
+                        >
+                            Search
+                        </button>
+                
+                    
+            </div>
+
             <div id="product">
+
                {
-                   this.state.productCollection.map(product =>(
+                   products &&
+                    products.map(product =>(
                        <div className="card" key={product._id}>
-                           <Link to={`/product/${product._id}`}>
+                           
                                <img src={product.imageData} alt=""/>
-                           </Link>
+                           
                            <div className="content">
                                <h3>
-                                   <Link to={`/product/${product._id}`}>{product.productName}</Link>
+                                   {product.productName}
                                </h3>
                                <span>Rs{product.price}</span>
                                <p>Memory capacity: {product.internalMemory}</p> 
@@ -49,6 +138,7 @@ export class Products extends Component {
                        </div>
                    ))
                }
+            </div>
             </div>
         )
     }

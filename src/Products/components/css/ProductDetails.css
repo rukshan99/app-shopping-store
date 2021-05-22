@@ -55,3 +55,60 @@
     letter-spacing: 2px;
     margin: 15px 0;
 }
+
+.form-control{
+
+    width: 100%;
+    min-height: 30px;
+    border: 0;
+    font-size: 1rem;
+    letter-spacing: .15rem;
+    font-family: "Arimo";
+    margin-top: 5px;
+    color: #0f0d0c;
+    background-color: rgb(214, 212, 212);
+    border-radius: 4px;
+}
+
+.btn-outline-secondary{
+
+    height: 39px;
+    width: 200px;
+    justify-content: center;
+    text-align: center;
+    color: #cfc9e1;
+    background-color: #020008;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: .3rem;
+    letter-spacing: 2px;
+    margin-top: 5px;
+
+}
+
+.btn-outline-secondary:hover {
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+}
+@keyframes btn-hov {
+    100% {
+        background-color: #f8f6fc;
+        color: #020105;
+        transform: scale(1.05)
+    
+    }
+}
+
+.search{
+
+    
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+}
+
+.input-group-append{
+
+    width: 30px;
+}

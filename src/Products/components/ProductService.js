@@ -2,6 +2,10 @@ import http from "../components/HTTPcommon";
 
 class ProductDataService {
   getAll() {
+    return http.get("/product");
+  }
+
+  getAll() {
     return http.get("/about");
   }
 
@@ -9,16 +13,17 @@ class ProductDataService {
     return http.get(`/product/${id}`);
   }
 
-//   create(data) {
-//     return http.post("/tutorials", data);
-//   }
 
   update(id, data) {
     return http.put(`/about/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/product/${id}`);
+    return http.delete(`/about/${id}`);
+  }
+
+  findByBrand(brand) {
+    return http.get(`/product?brand=${brand}`);
   }
 
   findByBrand(brand) {

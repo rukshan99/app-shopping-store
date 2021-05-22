@@ -1,22 +1,16 @@
 import React from 'react';
 import { Component } from 'react'
 
-// import validate from './validateInfo';
-// import useForm from './useForm';
+
 import '../.././css/UpdateForm.css';
-import axios from 'axios';
+
 import ProductDataService from "../../ProductService";
 
 
 
 export default class updateForm extends Component {
 
-// UpdateForm = ({ submitForm }) => {
-//   const { handleChange, handleSubmit, values, errors } = useForm(
-//     submitForm,
-//     validate
-//   );
-// }
+
 
 
 
@@ -49,10 +43,9 @@ export default class updateForm extends Component {
   }
 
    componentDidMount() {
-     //console.log(this.state.currentProduct);
-     //console.log(this.props.match.params.id);
-
-     this.getOneProduct('60a56c20748fb33970ad5a1d');//'60a56c20748fb33970ad5a1d'
+    
+     console.log(localStorage.getItem('productId'));
+     this.getOneProduct(localStorage.getItem('productId'));
    }
 
    onChangeproductName(e) {
@@ -191,7 +184,7 @@ export default class updateForm extends Component {
             value={currentProduct.productName}
             onChange={this.onChangeproductName}
           />
-          {/* {errors.productName && <p>{errors.productName}</p>} */}
+          
         </div>
 
 
@@ -205,7 +198,7 @@ export default class updateForm extends Component {
             value={currentProduct.displaySize}
             onChange={this.onChangedisplaySize}
           />
-          {/* {errors.displaySize && <p>{errors.displaySize}</p>} */}
+         
         </div>
 
 
@@ -219,7 +212,7 @@ export default class updateForm extends Component {
             value={currentProduct.RAMSize}
             onChange={this.onChangeRAMSize}
           />
-          {/* {errors.RAMSize && <p>{errors.RAMSize}</p>} */}
+          
         </div>
 
 
@@ -233,7 +226,7 @@ export default class updateForm extends Component {
             value={currentProduct.internalMemory}
             onChange={this.onChangeinternalMemory}
           />
-          {/* {errors.internalMemory && <p>{errors.internalMemory}</p>} */}
+         
         </div>
 
 
@@ -247,7 +240,7 @@ export default class updateForm extends Component {
             value={currentProduct.brand}
             onChange={this.onChangebrand}
           />
-          {/* {errors.brand && <p>{errors.brand}</p>} */}
+         
         </div>
 
 
@@ -261,7 +254,7 @@ export default class updateForm extends Component {
             value={currentProduct.serialNumber}
             onChange={this.onChangeserialNumber}
           />
-          {/* {errors.serialNumber && <p>{errors.serialNumber}</p>} */}
+          
         </div>
 
 
@@ -275,7 +268,7 @@ export default class updateForm extends Component {
             value={currentProduct.price}
             onChange={this.onChangeprice}
           />
-          {/* {errors.price && <p>{errors.price}</p>} */}
+          
         </div>
 
         <button

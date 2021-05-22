@@ -14,107 +14,9 @@ export class DataProvider extends Component {
         }
     }
 
-    // state = {
-    //     products: [
-    //         {
-    //             "_id": "1",
-    //             "title": "iphone Xs",
-    //             "src": "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/SwappieXsGold-1-1-1-600x600.png",
-    //             "description": "Availbale Storage Size: 128GB, 256GB",
-    //             "content": "The best price of Apple iPhone XS 128GB in Sri Lanka is Rs. 165,000 sold at Greenware with 1 Year Apple Care Warranty.LTE 4G 3 GB RAM 128 GB eSIM",
-    //             "price": 165000,
-    //             "colors": ["red", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "2",
-    //             "title": "iphone XR",
-    //             "src": "https://geniusmobile.lk/wp-content/uploads/2020/12/xr-Black.jpg",
-    //             "description": "Availbale Storage Size: 128GB, 256GB",
-    //             "content": "The best price of Apple iPhone XR 128GB in Sri Lanka is Rs. 145,000 sold at Greenware with 1 Year Apple Care Warranty.LTE 4G 3 GB RAM 128 GB eSIM",
-    //             "price": 145000,
-    //             "colors": ["red", "Gold", "black"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "3",
-    //             "title": "iphone 12 pro max",
-    //             "src": "https://pngimg.com/uploads/iphone_12/iphone_12_PNG10.png",
-    //             "description": "Availbale Storage Size: 128GB, 256GB",
-    //             "content": "The best price of Apple iPhone 12 pro Max 256GB in Sri Lanka is Rs. 325,000 sold at Greenware with 1 Year Apple Care Warranty.LTE 4G 3 GB RAM 128 GB eSIM",
-    //             "price": 325000,
-    //             "colors": ["lightblue", "white", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "4",
-    //             "title": "Samsung",
-    //             "src": "https://www.upsieutoc.com/images/2020/06/27/img4.jpg",
-    //             "description": "UI/UX designing, html css tutorials",
-    //             "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-    //             "price": 15,
-    //             "colors": ["orange", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "5",
-    //             "title": "Samsung",
-    //             "src": "https://www.upsieutoc.com/images/2020/06/27/img5.jpg",
-    //             "description": "UI/UX designing, html css tutorials",
-    //             "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-    //             "price": 10,
-    //             "colors": ["orange", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "6",
-    //             "title": "Samsung",
-    //             "src": "https://www.upsieutoc.com/images/2020/06/27/img6.jpg",
-    //             "description": "UI/UX designing, html css tutorials",
-    //             "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-    //             "price": 17,
-    //             "colors": ["orange", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "7",
-    //             "title": "Huwewi",
-    //             "src": "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-    //             "description": "UI/UX designing, html css tutorials",
-    //             "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-    //             "price": 23,
-    //             "colors": ["red", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "8",
-    //             "title": "Huwewi",
-    //             "src": "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-    //             "description": "UI/UX designing, html css tutorials",
-    //             "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-    //             "price": 23,
-    //             "colors": ["red", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //         {
-    //             "_id": "9",
-    //             "title": "Huwewi",
-    //             "src": "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-    //             "description": "UI/UX designing, html css tutorials",
-    //             "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-    //             "price": 23,
-    //             "colors": ["red", "black", "crimson", "teal"],
-    //             "count": 1
-    //         },
-    //     ],
-    //     cart: [],
-    //     total: 0
-        
-    // };
 
     addCart = (id) =>{
-        // {productCollection, cart} = this.state;
-        //console.log(this.state.productCollection);
+       
         const check = this.state.cart.every(item =>{
             return item.serialNumber !== id
         })
@@ -129,7 +31,7 @@ export class DataProvider extends Component {
     };
 
     reduction = id =>{
-        //const { cart } = this.state;
+        const { cart } = this.state;
         this.state.cart.forEach(item =>{
             if(item.serialNumber === id){
                 item.count === 1 ? item.count = 1 : item.count -=1;
@@ -140,7 +42,7 @@ export class DataProvider extends Component {
     };
 
     increase = id =>{
-        //const { cart } = this.state;
+        const { cart } = this.state;
         this.state.cart.forEach(item =>{
             if(item.serialNumber === id){
                 item.count += 1;
@@ -152,7 +54,7 @@ export class DataProvider extends Component {
 
     removeProduct = id =>{
         if(window.confirm("Do you want to delete this product?")){
-            //const {cart} = this.state;
+            const {cart} = this.state;
             this.state.cart.forEach((item, index) =>{
                 if(item.serialNumber === id){
                     this.state.cart.splice(index, 1)
@@ -165,7 +67,7 @@ export class DataProvider extends Component {
     };
 
     getTotal = ()=>{
-        //const{cart} = this.state;
+        const{cart} = this.state;
         const res =  this.state.cart.reduce((prev, item) => {
             return prev + (item.price * item.count);
         },0)
@@ -197,7 +99,7 @@ export class DataProvider extends Component {
     render() {
         const {productCollection, cart,total} = this.state;
         const {addCart,reduction,increase,removeProduct,getTotal} = this;
-        //console.log(addCart);
+        
         return (
             <DataContext.Provider 
             value={{productCollection, addCart, cart, reduction,increase,removeProduct,total,getTotal}}>

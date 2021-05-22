@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {DataContext} from '../Context'
 import {Link} from 'react-router-dom'
-//import Colors from './Colors'
 import '../css/Details.css'
 import '../css/Cart.css'
 
@@ -21,23 +20,25 @@ export class Cart extends Component {
                 <>
                     {
                         cart.map(item =>(
-                            <div className="details cart" key={item.serealNumber}>
-                                <img src={item.src} alt=""/>
+                            <div className="details cart" key={item.serialNumber}>
+                                <img src={item.imageData} alt=""/>
                                 <div className="box">
                                     <div className="row">
-                                        <h2>{item.title}</h2>
-                                        <span>Rs {item.price * item.count}</span>
+                                        <h2>{item.brand} {item.productName} </h2>
+                                        <span>{item.price * item.count}</span>
                                     </div>
-                                    {/* <Colors colors={item.colors}/> */}
-                                    <p>{item.description}</p>
+                                   
+                                    <p>RAM: {item.RAMSize}<br/>
+                                    Memory: {item.internalMemory}<br/>
+                                    Unit Price: Rs.{item.price}/=<br/></p>
                                     <p>{item.content}</p>
                                     <div className="amount">
-                                        <button className="count" onClick={() => reduction(item.serealNumber)}> - </button>
+                                        <button className="count" onClick={() => reduction(item.serialNumber)}> - </button>
                                         <span>{item.count}</span>
-                                        <button className="count" onClick={() => increase(item.serealNumber)}> + </button>
+                                        <button className="count" onClick={() => increase(item.serialNumber)}> + </button>
                                     </div>
                                 </div>
-                                <div className="delete" onClick={() => removeProduct(item.serealNumber)}>X</div>
+                                <div className="delete" onClick={() => removeProduct(item.serialNumber)}>X</div>
                             </div>
                         ))
                     }

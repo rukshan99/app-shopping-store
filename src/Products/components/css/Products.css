@@ -55,3 +55,38 @@
     letter-spacing: 2px;
     margin: 15px 0;
 }
+
+/* search css */
+
+
+.btn-outline-secondary:hover {
+    animation-name: btn-hov;
+    animation-duration: 550ms;
+    animation-fill-mode: forwards;
+}
+@keyframes btn-hov {
+    100% {
+        background-color: #cfc9e1;
+        color: #4a3b76;
+        transform: scale(1.05)
+    
+    }
+}
+
+.search{
+
+    justify-content: space-between;
+    display: flex;
+    width: 100%;
+    
+}
+
+.input-group-append{
+
+    width: 10px;
+}
+
+.input-group-append1{
+
+    width: 500px;
+}
