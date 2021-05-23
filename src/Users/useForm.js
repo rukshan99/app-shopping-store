@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+
 const useForm = (callback, validate) => {
   const [values, setValues] = useState({
     username: '',
@@ -27,7 +28,14 @@ const useForm = (callback, validate) => {
 
     axios
       .post('http://localhost:4000/signup', values)
-      .then(() => console.log('User Created'))
+      // .then(() => console.log('User Created'))
+      .then(response => {
+        console.log(response)
+        
+        if (response.data === ('fail')) {
+          alert("Email already exist")
+        }
+      })
       .catch(err => {
         console.error(err);
       });

@@ -111,10 +111,6 @@ export class DataProvider extends Component {
         if(dataUser === null){
             alert("Please be a registered user!!!")
         }else{
-
-
-
-
         if(check){
             const data = products.filter(product =>{
                 return product._id === id
