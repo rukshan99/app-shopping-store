@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+
 import './image-upload.css';
 import FileBase from 'react-file-base64';
 import DefaultImg from './default-img.jpg';
 
-// base api url being used
+
 const API_URL = "http://localhost:4000";
 let image = undefined;
 class ImageUpload extends Component {
@@ -38,15 +38,14 @@ class ImageUpload extends Component {
     }
   }
 
-  // function to upload image once it has been captured
-  // includes multer and firebase methods
+  
   uploadImage(e, method) {
     let imageObj = {};
   }
 
-  // function to capture base64 format of an image
+  
   getBaseFile(files) {
-    // create a local readable base64 instance of an image
+    
     this.setState({
       baseImage: files.base64
     });

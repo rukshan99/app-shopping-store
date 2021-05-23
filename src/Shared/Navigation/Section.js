@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 import Products from '../../Products/components/section/Products'
 import {Route} from "react-router-dom"
 import Cart from '../../Products/components/section/Cart'
+<<<<<<< HEAD
+import Payment from '../../Products/components/section/Payment'
+import ProductForm from '../../Products/components/section/FormDetails/ProductForm'
+=======
 import Form from '../../Products/components/section/FormDetails/Form'
+>>>>>>> be1710c518ff6fd71b38f8eb1b364c29a9998207
 import Admin from '../../Products/components/ProductAdmin/ProductsDetails'
 import UpdateForm from '../../Products/components/ProductAdmin/UpdateProduct/UpForm'
 
@@ -20,8 +25,13 @@ export class Section extends Component {
                     <Route path="/" component={Products} exact />
                     <Route path="/product" component={Products} exact  />
                     <Route path="/cart" component={Cart}  exact/>
+<<<<<<< HEAD
+                    <Route path="/payment" component={Payment} exact />
+                    <Route path="/form" component={ProductForm} exact />
+=======
                     <Route path="/form" component={Form} exact />
 
+>>>>>>> be1710c518ff6fd71b38f8eb1b364c29a9998207
                     <Route path="/about" component={Admin} exact /> 
                     <Route path="/contact/:id" component={UpdateForm} exact/> 
 
