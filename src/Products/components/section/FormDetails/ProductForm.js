@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../../css/Form.css';
-import FormSignup from './ProductAddingForm';
+import ProductAdding from './ProductAddingForm';
 import FormSuccess from './FormSuccess';
 import Phone from '../../../../shared/Assests/images/phones.png'
 
@@ -19,7 +19,7 @@ const ProductForm = () => {
           <h1 className ='title'>THE GADGET STORE.</h1>
         </div>
         {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
+          <ProductAdding submitForm={submitForm} />
         ) : (
           <FormSuccess />
         )}

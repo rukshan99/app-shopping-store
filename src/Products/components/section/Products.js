@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
-import axios from 'axios';
-
 import {DataContext} from '../Context'
 import '../css/Products.css'
 import ProductDataService from "../../components/ProductService";
