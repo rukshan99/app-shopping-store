@@ -48,3 +48,7 @@
     padding: 10px 25px;
     display: inline-block;
 }
+section{
+    box-shadow: 0 0 5px #ccc;
+    padding: 15px 10px;
+  }

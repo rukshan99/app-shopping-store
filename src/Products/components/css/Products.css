@@ -56,6 +56,7 @@
     margin: 15px 0;
 }
 
+
 /* search css */
 
 
@@ -90,3 +91,7 @@
 
     width: 500px;
 }
+section{
+    box-shadow: 0 0 5px #ccc;
+    padding: 15px 10px;
+  }

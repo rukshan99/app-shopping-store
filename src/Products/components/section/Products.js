@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
+import axios from 'axios';
+
+import Header from '../../../shared/Navigation/Header';
 import {DataContext} from '../Context'
 import '../css/Products.css'
 import ProductDataService from "../../components/ProductService";
-
-
 
 export class Products extends Component {
     static contextType = DataContext;
@@ -89,12 +91,9 @@ export class Products extends Component {
         const { searchBrand, products, current, currentIndex } = this.state;
         console.log(addCart);
         return (
-
             <div>
                 <div className= "search">
-                   
-                    
-                        <input
+                    <input
                         type="text"
                         className="form-control"
                         placeholder="Search by Brand"
@@ -109,10 +108,10 @@ export class Products extends Component {
                         >
                             Search
                         </button>
-                
                     
-            </div>
-
+                </div>
+            <div>
+                <Header/>
             <div id="product">
 
                {
@@ -137,8 +136,10 @@ export class Products extends Component {
                }
             </div>
             </div>
-        )
-    }
+            </div>
+    )
+    
+}
 }
 
 export default Products
