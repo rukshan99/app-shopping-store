@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import '../../css/Form.css';
-import FormSignup from './FormSignup';
+import ProductAdding from './ProductAddingForm';
 import FormSuccess from './FormSuccess';
 import Phone from '../../../../shared/Assests/images/phones.png'
 import Header from '../../../../shared/Navigation/aHead';
 
-const Form = () => {
+const ProductForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -22,7 +22,7 @@ const Form = () => {
           <h1 className ='title'>THE GADGET STORE.</h1>
         </div>
         {!isSubmitted ? (
-          <FormSignup submitForm={submitForm} />
+          <ProductAdding submitForm={submitForm} />
         ) : (
           <FormSuccess />
         )}
@@ -32,4 +32,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default ProductForm;

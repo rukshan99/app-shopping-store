@@ -1,41 +1,145 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios';
+
 import Header from '../../../shared/Navigation/Header';
 import {DataContext} from '../Context'
 import '../css/Products.css'
-
+import ProductDataService from "../../components/ProductService";
 
 export class Products extends Component {
-
     static contextType = DataContext;
 
+    constructor(props) {
+        super(props);
+
+        this.onChangeSearchBrand = this.onChangeSearchBrand.bind(this);
+        this.retrieveProducts = this.retrieveProducts.bind(this);
+        this.setActiveProduct = this.setActiveProduct.bind(this);
+        this.searchBrand = this.searchBrand.bind(this);
+        this.refreshList = this.refreshList.bind(this);
+        this.state = {
+     
+            products: [], 
+            currentProduct: null,
+            searchBrand: ""
+
+            
+          };
+
+        }
+
+        retrieveProducts() {
+            ProductDataService.getAll()
+              .then(response => {
+                this.setState({
+                    products: response.data
+                });
+                console.log(response.data);
+              })
+              .catch(e => {
+                console.log(e);
+              });
+          }
+
+          setActiveProduct(product,) {
+            this.setState({
+              currentProduct: product,
+            });
+          }
+    
+          refreshList() {
+            this.retrieveProducts();
+            this.setState({
+              currentProduct: null,
+            });
+          }
+
+    componentDidMount() {
+   
+    this.retrieveProducts();
+    }
+
+    onChangeSearchBrand(e) {
+        const searchBrand = e.target.value;
+    
+        this.setState({
+          searchBrand: searchBrand
+        });
+      }
+
+      searchBrand() {
+        ProductDataService.findByBrand(this.state.searchBrand)
+          .then(response => {
+            this.setState({
+              products: response.data
+            });
+            
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
+        }
+
+
+
     render() {
-        const {products,addCart} = this.context;
+
+
+        const {addCart} = this.context;
+        const { searchBrand, products, current, currentIndex } = this.state;
+        console.log(addCart);
         return (
+            <div>
+                <div className= "search">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search by Brand"
+                        value={searchBrand}
+                        onChange={this.onChangeSearchBrand}
+                        />
+                   
+                        <button
+                            className="btn-outline-secondary"
+                            type="button"
+                            onClick={this.searchBrand}
+                        >
+                            Search
+                        </button>
+                    
+                </div>
             <div>
                 <Header/>
             <div id="product">
+
                {
-                   products.map(product =>(
+                   products &&
+                    products.map(product =>(
                        <div className="card" key={product._id}>
-                           <Link to={`/product/${product._id}`}>
-                               <img src={product.src} alt=""/>
-                           </Link>
+                           
+                               <img src={product.imageData} alt=""/>
+                           
                            <div className="content">
                                <h3>
-                                   <Link to={`/product/${product._id}`}>{product.title}</Link>
+                                   {product.productName}
                                </h3>
                                <span>Rs{product.price}</span>
-                               <p>{product.description}</p>
-                               <button onClick={()=> addCart(product._id)}>Add to cart</button>
+                               <p>Memory capacity: {product.internalMemory}</p> 
+                               <p>Ram Size: {product.RAMSize}</p>
+                               <p>Display Size: {product.displaySize}</p>
+                               <button onClick={() => addCart(product.serialNumber)}>Add to cart</button>
                            </div>
                        </div>
                    ))
                }
             </div>
             </div>
-        )
-    }
+            </div>
+    )
+    
+}
 }
 
 export default Products

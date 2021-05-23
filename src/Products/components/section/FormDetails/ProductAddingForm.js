@@ -2,16 +2,19 @@ import React from 'react';
 import validate from './validateInfo';
 import useForm from './useForm';
 import '../../css/Form.css';
+import ImageUpload from '../../image-upload/image-upload';
 
-const FormSignup = ({ submitForm }) => {
+const ProductAddingForm = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
   );
 
+
+
   return (
     <div className='form-content-right'>
-      <form onSubmit={handleSubmit} className='form' noValidate>
+      <form onSubmit={handleSubmit} className='form' enctype="multipart/form-data" noValidate>
         <h1>
           PRODUCT DETAILS
         </h1>
@@ -113,17 +116,7 @@ const FormSignup = ({ submitForm }) => {
         </div>
 
 
-        <div className='form-inputs'>
-          <label className='form-label'>Add Your Image</label>
-          <input type="file" name="image" id="input" accept="image/*"/>
-          <div className="lable">
-            
-            <label htmlFor="input"  className="image-upload">
-              <i className="material-icons">add_photo_alternate</i>
-              choose your photo
-              </label>
-          </div>
-        </div>
+        <ImageUpload />
 
 
         <button className='form-input-btn' type='submit'>
@@ -134,4 +127,4 @@ const FormSignup = ({ submitForm }) => {
   );
 };
 
-export default FormSignup;
+export default ProductAddingForm;
