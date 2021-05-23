@@ -4,7 +4,7 @@ import useForm from './useForm';
 import '../../css/Form.css';
 import ImageUpload from '../../image-upload/image-upload';
 
-const FormSignup = ({ submitForm }) => {
+const ProductAddingForm = ({ submitForm }) => {
   const { handleChange, handleSubmit, values, errors } = useForm(
     submitForm,
     validate
@@ -127,4 +127,4 @@ const FormSignup = ({ submitForm }) => {
   );
 };
 
-export default FormSignup;
+export default ProductAddingForm;

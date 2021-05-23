@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../../css/Form.css';
-import FormSignup from './FormSignup';
+import FormSignup from './ProductAddingForm';
 import FormSuccess from './FormSuccess';
 import Phone from '../../../../shared/Assests/images/phones.png'
 
-const Form = () => {
+const ProductForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm() {
@@ -28,4 +28,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default ProductForm;

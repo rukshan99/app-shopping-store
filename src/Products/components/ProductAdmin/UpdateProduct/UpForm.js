@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../.././css/UpdateForm.css';
 import ProductUpdate from './UpdateForm';
 import FormSuccess from './FormSuccess';
-import Phone from '../../../../shared/Assests/images/phones.png';
+import logos from '../../../../shared/Assests/images/logos.png';
 
 
 const UpForm = () => {
@@ -16,7 +16,7 @@ const UpForm = () => {
       <div className='form-container'>
         <span className='close-btn'>×</span>
         <div className='form-content-left'>
-          <img className='form-img' src={Phone} alt='spaceship' />
+          <img className='form-img' src={logos} alt='spaceship' />
           <h1 className ='title'>THE GADGET STORE.</h1>
         </div>
         {!isSubmitted ? (
