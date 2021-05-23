@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 import './Form.css';
+
+const validEmailRegex = RegExp(
+  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+);
+
 export class FormLogin extends Component {
   state = { redirect: null };
 
@@ -14,23 +19,46 @@ export class FormLogin extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      errors: {
+        email: '',
+        password: '',
+      }
     }
   }
   OnChangeEmail(e) {
+    let errors = this.state.errors;
+    const { value } = e.target;
     this.setState({
       email: e.target.value
     });
+   if(!e.target.value){
+     errors.email = 'Email is required'
+   }else{
+    errors.email = 
+          validEmailRegex.test(value)
+            ? ''
+            : 'Email is not in valid type!';
+   }
   }
   OnChangePassword(e) {
+    let errors = this.state.errors;
+    const { value } = e.target;
     this.setState({
       password: e.target.value
     });
+    if(!e.target.value){
+      errors.password = 'Password required'
+    }else{  
+    errors.password = 
+    value.length < 8
+      ? 'Password must be at least 8 characters long!'
+      : '';
+    }
   }
 
   onSubmit(e) {
     e.preventDefault();
-
 
     console.log(`Form submitted:`);
 
@@ -38,7 +66,10 @@ export class FormLogin extends Component {
 
       email: this.state.email,
       password: this.state.password
-    };
+    }; 
+
+    this.OnChangeEmail(e);
+    this.OnChangePassword(e);
 
     axios
       .post('http://localhost:4000/login', values)
@@ -69,10 +100,13 @@ export class FormLogin extends Component {
 
   }
   render() {
+    
     if (this.state.redirect) {
       return <Redirect to={this.state.redirect} />
     } else {
+      const {errors} = this.state;
       return (
+        
         <div className='form-content-right'>
           <form onSubmit={this.onSubmit} className='form' noValidate>
             <h1>
@@ -89,6 +123,8 @@ export class FormLogin extends Component {
                 onChange={this.OnChangeEmail}
 
               />
+              {errors.email && 
+                  <p>{errors.email}</p>}
 
             </div>
             <div className='form-inputs'>
@@ -102,6 +138,8 @@ export class FormLogin extends Component {
                 onChange={this.OnChangePassword}
 
               />
+              {errors.password && 
+                <p>{errors.password}</p>}
 
             </div>
             <button className='form-input-btn' type='submit'>

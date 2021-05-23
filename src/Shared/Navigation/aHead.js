@@ -29,7 +29,6 @@ export class aHead extends Component {
                     <ul className={toggle ? "toggle" : ""}>
                         <li><Link to="/admin">Home</Link></li>
                         <li><Link to="/form">Product</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/login">Logout</Link></li>
                         <li className="close" onClick={this.menuToggle}>
                             <img src={Close} alt="" width="20"/>
