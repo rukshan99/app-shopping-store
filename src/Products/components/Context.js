@@ -101,22 +101,25 @@ export class DataProvider extends Component {
         total: 0
         
     };
-
     addCart = (id) =>{
-        const {products, cart} = this.state;
-        const check = cart.every(item =>{
-            return item._id !== id
+        const dataUser = JSON.parse(localStorage.getItem('dataUser'));
+        const check = this.state.cart.every(item =>{
+            return item.serialNumber !== id
         })
+        if(dataUser === null){
+            alert("Please be a registered user!!!")
+        }else{
+
         if(check){
-            const data = products.filter(product =>{
-                return product._id === id
+            const data = this.state.productCollection.filter(product =>{
+                return product.serialNumber === id
             })
-            this.setState({cart: [...cart,...data]})
+            this.setState({cart: [...this.state.cart,...data]})
         }else{
             alert("The product has been added to cart.")
         }
+    }
     };
-
     reduction = id =>{
         const { cart } = this.state;
         cart.forEach(item =>{

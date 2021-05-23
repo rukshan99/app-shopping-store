@@ -130,12 +130,38 @@
   font-size: 1rem;
 }
 
+.form-logout-btn {
+  width: 60%;
+  height: 50px;
+  margin-left: 20%;
+  border-radius: 2px;
+  background: linear-gradient(
+    90deg,
+    rgb(255, 39, 50) 0%,
+    rgb(214, 106, 99) 100%
+  );
+  outline: none;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  
+}
+
 .form-input-btn:hover {
   cursor: pointer;
   background: linear-gradient(
     90deg,
     rgb(39, 143, 255) 0%,
     rgb(12, 99, 250) 100%
+  );
+  transition: all 0.4s ease-out;
+}
+.form-logout-btn:hover {
+  cursor: pointer;
+  background: linear-gradient(
+    90deg,
+    rgb(236, 183, 180) 0%,
+    rgb(228, 40, 40) 100%
   );
   transition: all 0.4s ease-out;
 }
@@ -152,4 +178,12 @@
   text-decoration: none;
   color: #27cdff;
   font-weight: 600;
+}
+
+.link {
+  color: #FFF;
+  
+}
+.link:hover {
+  color: rgb(35, 190, 190);
 }
