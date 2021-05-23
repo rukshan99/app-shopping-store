@@ -6,6 +6,7 @@ import '../css/Details.css'
 import '../css/Cart.css'
 import Header from '../../../shared/Navigation/Header'
 
+export let gadgetCart;
 export class Cart extends Component {
     static contextType = DataContext;
 
@@ -16,6 +17,7 @@ export class Cart extends Component {
     render() {
         
         const {cart,increase,reduction,removeProduct,total} = this.context;
+        gadgetCart = this.context;
         if(cart.length === 0){
             return (
                 <div>
@@ -51,7 +53,18 @@ export class Cart extends Component {
                         ))
                     }
                     <div className="total">
-                        <Link to="/payment">Payment</Link>
+                        <Link to={{
+                            pathname: `/payment`,
+                            state: {
+                                mobilePay: false,
+                              },
+                            }}>Pay with card</Link>
+                        <Link to={{
+                            pathname: `/payment`,
+                            state: {
+                                mobilePay: true,
+                              },
+                            }}>Pay with mobile</Link>
                         <h3>Total: Rs {total}</h3>
                     </div>
                 </>
@@ -59,6 +72,7 @@ export class Cart extends Component {
                 )
             }
         }
+        
 }
 
-export default Cart
+export default Cart;

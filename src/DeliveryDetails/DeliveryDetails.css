@@ -25,7 +25,7 @@ body {
 }
 h1 {
     text-align: center;
-    font-size: 24px;
+    font-size: 34px;
     line-height: 10px;
     color:  #493b76;
     letter-spacing: 1px;
@@ -33,7 +33,7 @@ h1 {
 
 input,textarea {
     width: 100%;
-    min-height: 25px;
+    min-height: 30px;
     border: 0;
     font-size: 1rem;
     letter-spacing: .15rem;
@@ -42,6 +42,12 @@ input,textarea {
     color: #0f0d0c;
     background-color: rgb(214, 212, 212);
     border-radius: 4px;
+}
+
+textarea{
+
+    min-height: 70px;
+
 }
 
 label {
@@ -61,14 +67,26 @@ label {
 }
 .subAdd{
 
-        width: 45%;
+        width: 30%;
+
+}
+.subAdd1{
+
+    width: 35%;
+
+}
+.subAdd2{
+
+    width: 45%;
 
 }
 
 .btnDelivery{
-    margin: 3px 0;
+   /* margin: 3px 0;*/
     height: 30px;
-    
+    width: 300px;
+    justify-content: center;
+    text-align: center;
     color: #cfc9e1;
     background-color: #4a3b76;
     text-transform: uppercase;

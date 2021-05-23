@@ -11,11 +11,28 @@ export const stripePaymentMethodHandler = async (data, cb) => {
       name: result.paymentMethod.billing_details.name,
       email: result.paymentMethod.billing_details.email,
       amount: amount,
-      mobile
+      mobile,
+      mobilePay: false
     });
     console.log(paymentResponse);
     cb(paymentResponse);
   }
+}
+
+export const mobilePaymentMethodHandler = async (data, cb) => {
+  const { name, email, amount, mobile } = data;
+  
+    const paymentResponse = await stripePayment({
+      payment_method_id: null,
+      name,
+      email,
+      amount,
+      mobile,
+      mobilePay: true
+    });
+    console.log(paymentResponse);
+    cb(paymentResponse);
+  
 }
 
 // place backend API call for payment
